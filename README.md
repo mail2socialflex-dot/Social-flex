@@ -730,3 +730,9 @@ The website should immediately communicate:
 **"These people know branding, content and digital."**
 
 Make the final result polished enough to be presented to a real client.
+
+---
+
+## Documentation & Leads
+
+- **Enquiry & Lead Destinations:** See [ENQUIRY_STORAGE.md](file:///Users/shiva/Documents/Social%20Flex%20/web/social-cinematic-studio-main/ENQUIRY_STORAGE.md) for full details on Google Sheets, email alerts, and Supabase database lead storage.
