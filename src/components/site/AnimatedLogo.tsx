@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logoMark from "@/assets/social-flex-logo-main.webp";
+import logoMark from "@/assets/social-flex-logo-main.png";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;

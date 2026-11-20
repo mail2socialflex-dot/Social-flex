@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
-import socialFlexMascot from "@/assets/social-flex-mascot.webp";
+import socialFlexMascot from "@/assets/social-flex-mascot.png";
 import { cn } from "@/lib/utils";
 
 interface MascotProps {

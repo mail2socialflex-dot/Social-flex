@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import socialFlexMascot from "@/assets/social-flex-mascot.webp";
+import socialFlexMascot from "@/assets/social-flex-mascot.png";
 
 export function HeroMascot() {
   const containerRef = useRef<HTMLDivElement>(null);

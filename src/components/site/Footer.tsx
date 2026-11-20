@@ -1,6 +1,6 @@
 import { Dribbble, Instagram, Mail } from "lucide-react";
 import { motion } from "framer-motion";
-import logoMark from "@/assets/social-flex-logo-main.webp";
+import logoMark from "@/assets/social-flex-logo-main.png";
 
 const LINKS = ["Branding", "Digital Marketing", "Content", "Design"];
 
