@@ -229,11 +229,13 @@ export function Contact() {
                   <option value="" disabled>
                     Service Required *
                   </option>
-                  <option>Branding</option>
-                  <option>Digital Marketing</option>
-                  <option>Content Creation</option>
-                  <option>Creative Design</option>
                   <option>Personal Branding</option>
+                  <option>Brand Creation</option>
+                  <option>SEO & Google Visibility</option>
+                  <option>Meta Ads & Performance Marketing</option>
+                  <option>Digital Marketing</option>
+                  <option>Content & Reel Production</option>
+                  <option>Creative Design & Photography</option>
                 </select>
                 {fieldErrors["project_type"] && (
                   <span className="mt-1 block text-xs text-red-400">{fieldErrors["project_type"]}</span>
