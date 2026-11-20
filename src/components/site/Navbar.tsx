@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedLogo } from "./AnimatedLogo";
 import { Magnetic } from "./primitives";
-import { WhatsAppIcon } from "./WhatsAppCTA";
+import { WhatsAppIcon, WHATSAPP_URL } from "./WhatsAppCTA";
 
 const LINKS = [
   { label: "HOME", href: "#home" },
@@ -162,7 +162,7 @@ export function Navbar() {
                 Let's Talk <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://wa.me/917092280024"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}

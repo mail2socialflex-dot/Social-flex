@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export const WHATSAPP_URL = "https://wa.me/917092280024";
+export const DEFAULT_WHATSAPP_MESSAGE =
+  "Hi Social Flex! I came across your website and I'd like to discuss a project with your team.";
+
+export const WHATSAPP_URL = `https://wa.me/917092280024?text=${encodeURIComponent(DEFAULT_WHATSAPP_MESSAGE)}`;
 
 export function WhatsAppIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
@@ -20,13 +22,19 @@ export function WhatsAppIcon({ className = "h-4 w-4" }: { className?: string }) 
 export function WhatsAppCTAButton({
   className,
   size = "default",
+  customMessage,
 }: {
   className?: string;
   size?: "sm" | "default" | "lg";
+  customMessage?: string;
 }) {
+  const href = customMessage
+    ? `https://wa.me/917092280024?text=${encodeURIComponent(customMessage)}`
+    : WHATSAPP_URL;
+
   return (
     <a
-      href={WHATSAPP_URL}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
