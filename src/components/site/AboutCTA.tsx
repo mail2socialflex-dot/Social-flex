@@ -2,6 +2,7 @@ import { Facebook, Instagram, Mail, Phone } from "lucide-react";
 import about1 from "@/assets/about-1.jpg";
 import about2 from "@/assets/about-2.jpg";
 import { ActionButton, Reveal } from "./primitives";
+import { WhatsAppCTAButton } from "./WhatsAppCTA";
 
 export function AboutCTA() {
   return (
@@ -67,10 +68,11 @@ export function AboutCTA() {
           <p className="mt-6 max-w-md text-sm sm:text-base leading-[1.75] sm:leading-[1.8] text-muted-foreground">
             Let's turn your ideas into something people remember. We're just a message away.
           </p>
-          <div className="mt-9">
+          <div className="mt-9 flex flex-wrap items-center gap-4">
             <ActionButton as="a" href="#contact">
               Let's Talk
             </ActionButton>
+            <WhatsAppCTAButton size="sm" />
           </div>
 
           <div className="mt-12 grid gap-3 sm:grid-cols-2">

@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { submitEnquiryServerFn } from "@/lib/enquiry-server";
 import { Magnetic, Reveal, SectionLabel } from "./primitives";
+import { WhatsAppCTAButton, WhatsAppIcon } from "./WhatsAppCTA";
 
 const inputCls =
   "w-full rounded-md border border-border bg-rich/60 px-4 py-3.5 text-sm leading-[1.65] text-foreground placeholder:text-muted-foreground/60 outline-none backdrop-blur-sm transition-all duration-300 focus:border-primary focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--primary)_18%,transparent)] disabled:opacity-60";
@@ -105,8 +106,13 @@ export function Contact() {
               </a>
             </div>
 
-            <div className="mt-10 flex gap-3">
+            <div className="mt-7">
+              <WhatsAppCTAButton />
+            </div>
+
+            <div className="mt-8 flex gap-3">
               {[
+                { icon: WhatsAppIcon, href: "https://wa.me/917092280024", label: "WhatsApp" },
                 { icon: Instagram, href: "https://www.instagram.com/socialflex.in", label: "Instagram" },
                 { icon: Facebook, href: "https://www.facebook.com/share/1CFB93LRsq/", label: "Facebook" },
                 { icon: Mail, href: "mailto:mail2socialflex@gmail.com", label: "Email Us" },

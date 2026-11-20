@@ -10,6 +10,7 @@ import { Stats } from "@/components/site/Stats";
 import { AboutCTA } from "@/components/site/AboutCTA";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppFloat } from "@/components/site/WhatsAppCTA";
 
 const title = "Social Flex — Creative & Digital Marketing Agency";
 const description =
@@ -45,6 +46,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFloat />
       <Toaster />
     </div>
   );

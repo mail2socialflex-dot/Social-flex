@@ -4,6 +4,7 @@ import { HeroBackground } from "./HeroBackground";
 import { HeroMascot } from "./HeroMascot";
 import { ScrollIndicator } from "./ScrollIndicator";
 import { ActionButton, Magnetic } from "./primitives";
+import { WhatsAppCTAButton } from "./WhatsAppCTA";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -91,12 +92,15 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.72, ease }}
-            className="mt-9 flex flex-wrap items-center gap-6"
+            className="mt-9 flex flex-wrap items-center gap-4 sm:gap-6"
           >
             {/* Primary Red Pill Button */}
             <ActionButton href="#work" as="a" variant="solid" className="h-[52px] px-8 text-xs">
               EXPLORE OUR WORK
             </ActionButton>
+
+            {/* WhatsApp Business CTA */}
+            <WhatsAppCTAButton />
 
             {/* Secondary Circular Play Button */}
             <Magnetic>

@@ -1,6 +1,7 @@
 import { Dribbble, Facebook, Instagram, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import logoMark from "@/assets/social-flex-logo-main.png";
+import { WhatsAppIcon } from "./WhatsAppCTA";
 
 const LINKS = ["Branding", "Digital Marketing", "Content", "Design"];
 
@@ -55,6 +56,7 @@ export function Footer() {
 
           <div className="flex gap-3 lg:justify-end">
             {[
+              { icon: WhatsAppIcon, href: "https://wa.me/917092280024", label: "WhatsApp" },
               { icon: Instagram, href: "https://www.instagram.com/socialflex.in", label: "Instagram" },
               { icon: Facebook, href: "https://www.facebook.com/share/1CFB93LRsq/", label: "Facebook" },
               { icon: Mail, href: "mailto:mail2socialflex@gmail.com", label: "Email Us" },

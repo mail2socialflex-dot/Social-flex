@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedLogo } from "./AnimatedLogo";
 import { Magnetic } from "./primitives";
+import { WhatsAppIcon } from "./WhatsAppCTA";
 
 const LINKS = [
   { label: "HOME", href: "#home" },
@@ -159,6 +160,15 @@ export function Navbar() {
                 className="inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 label-xs text-primary-foreground shadow-[0_0_25px_var(--primary)]"
               >
                 Let's Talk <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="https://wa.me/917092280024"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/40 bg-emerald-950/40 px-6 py-4 label-xs font-semibold text-emerald-300 shadow-[0_0_20px_rgba(37,211,102,0.25)]"
+              >
+                <WhatsAppIcon className="h-4 w-4" /> WhatsApp
               </a>
             </div>
           </motion.div>
