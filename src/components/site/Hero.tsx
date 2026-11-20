@@ -9,52 +9,62 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   return (
-    <section id="home" className="relative w-full overflow-hidden bg-[#050505] pt-24 lg:pt-0">
+    <section id="home" className="relative w-full overflow-hidden bg-[#050505] pt-20 lg:pt-22 min-h-screen flex items-center">
       {/* Background Environment */}
       <HeroBackground />
 
       {/* 12-Column Responsive Grid Hero Container */}
-      <div className="relative z-10 mx-auto grid min-h-[840px] lg:h-[calc(100vh-84px)] max-w-[1440px] grid-cols-12 items-center gap-8 px-5 lg:gap-12 lg:px-10">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-12 items-center gap-6 px-5 lg:gap-12 lg:px-10 py-6 lg:py-0">
         {/* LEFT CONTENT (7 Columns Desktop, 12 Columns Mobile) */}
-        <div className="col-span-12 lg:col-span-7 flex flex-col justify-center py-10 lg:py-0">
-          {/* Eyebrow Label */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease }}
-          >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 label-xs text-xs tracking-[0.16em] text-muted-foreground/90 uppercase backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              WE MAKE
-            </span>
-          </motion.div>
+        <div className="col-span-12 md:col-span-7 flex flex-col justify-center">
+          {/* Top Row: Eyebrow + Headline (with Mobile Mascot on the Right Side) */}
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              {/* Eyebrow Label */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, ease }}
+              >
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 label-xs text-xs tracking-[0.16em] text-muted-foreground/90 uppercase backdrop-blur-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                  WE MAKE
+                </span>
+              </motion.div>
 
-          {/* Main Display Headline: BRANDS MATTER. */}
-          <h1 className="mt-6 flex flex-col gap-1.5 sm:gap-2 display text-[clamp(64px,8vw,136px)] leading-[0.98] tracking-[0.012em] font-normal uppercase select-none">
-            <span className="block overflow-hidden pb-1">
-              <motion.span
-                className="block text-[#F5F5F5]"
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.85, delay: 0.2, ease }}
-              >
-                BRANDS
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden pt-0.5">
-              <motion.span
-                className="block text-primary"
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.85, delay: 0.35, ease }}
-                style={{
-                  textShadow: "0 0 65px color-mix(in oklab, var(--primary) 50%, transparent)",
-                }}
-              >
-                MATTER<span className="inline-block ml-[0.15em]">.</span>
-              </motion.span>
-            </span>
-          </h1>
+              {/* Main Display Headline: BRANDS MATTER. */}
+              <h1 className="mt-4 sm:mt-6 flex flex-col gap-1 sm:gap-2 display text-[clamp(46px,7.5vw,136px)] leading-[0.98] tracking-[0.012em] font-normal uppercase select-none">
+                <span className="block overflow-hidden pb-1">
+                  <motion.span
+                    className="block text-[#F5F5F5]"
+                    initial={{ y: "110%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.85, delay: 0.2, ease }}
+                  >
+                    BRANDS
+                  </motion.span>
+                </span>
+                <span className="block overflow-hidden pt-0.5">
+                  <motion.span
+                    className="block text-primary"
+                    initial={{ y: "110%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.85, delay: 0.35, ease }}
+                    style={{
+                      textShadow: "0 0 65px color-mix(in oklab, var(--primary) 50%, transparent)",
+                    }}
+                  >
+                    MATTER<span className="inline-block ml-[0.15em]">.</span>
+                  </motion.span>
+                </span>
+              </h1>
+            </div>
+
+            {/* MOBILE ONLY: Mascot positioned on the RIGHT side of the first page */}
+            <div className="md:hidden shrink-0 w-[125px] sm:w-[160px] pt-1">
+              <HeroMascot />
+            </div>
+          </div>
 
           {/* Secondary Supporting Copy */}
           <motion.p
@@ -131,12 +141,12 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT VISUAL: Interactive Mascot Scene (5 Columns Desktop, 12 Columns Mobile) */}
+        {/* RIGHT VISUAL: Interactive Mascot Scene (Desktop / Tablet) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.45, ease }}
-          className="col-span-12 lg:col-span-5 flex items-center justify-center relative py-6 lg:py-0"
+          className="hidden md:flex md:col-span-5 items-center justify-center lg:justify-end relative py-4 lg:py-0"
         >
           <HeroMascot />
         </motion.div>

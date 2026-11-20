@@ -85,7 +85,7 @@ export function HeroMascot() {
             decoding="async"
             width={503}
             height={1162}
-            className="h-auto w-full object-contain transform-gpu"
+            className="h-auto w-full max-h-[55vh] md:max-h-[65vh] lg:max-h-[72vh] object-contain transform-gpu"
             style={{
               filter:
                 "drop-shadow(0 25px 45px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 18px color-mix(in oklab, var(--primary) 22%, transparent))",
