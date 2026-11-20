@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, Dribbble, Instagram, Mail, Loader2, AlertCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Dribbble, Facebook, Instagram, Mail, Loader2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -108,6 +108,7 @@ export function Contact() {
             <div className="mt-10 flex gap-3">
               {[
                 { icon: Instagram, href: "https://www.instagram.com/socialflex.in", label: "Instagram" },
+                { icon: Facebook, href: "https://www.facebook.com/share/1CFB93LRsq/", label: "Facebook" },
                 { icon: Mail, href: "mailto:mail2socialflex@gmail.com", label: "Email Us" },
                 { icon: Dribbble, href: "#contact", label: "Dribbble" },
               ].map(({ icon: Icon, href, label }, i) => (

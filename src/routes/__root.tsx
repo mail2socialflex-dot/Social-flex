@@ -145,7 +145,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "Social Flex is a premier digital studio and creative marketing agency specializing in brand strategy, cinematic video production, personal branding, short-form reels, and high-performance digital marketing.",
           email: "mail2socialflex@gmail.com",
           telephone: "+918015502024",
-          sameAs: ["https://www.instagram.com/socialflex.in"],
+          sameAs: [
+            "https://www.instagram.com/socialflex.in",
+            "https://www.facebook.com/share/1CFB93LRsq/",
+          ],
           address: {
             "@type": "PostalAddress",
             addressCountry: "IN",

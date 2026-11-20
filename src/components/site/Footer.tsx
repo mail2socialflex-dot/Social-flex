@@ -1,4 +1,4 @@
-import { Dribbble, Instagram, Mail } from "lucide-react";
+import { Dribbble, Facebook, Instagram, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import logoMark from "@/assets/social-flex-logo-main.png";
 
@@ -56,6 +56,7 @@ export function Footer() {
           <div className="flex gap-3 lg:justify-end">
             {[
               { icon: Instagram, href: "https://www.instagram.com/socialflex.in", label: "Instagram" },
+              { icon: Facebook, href: "https://www.facebook.com/share/1CFB93LRsq/", label: "Facebook" },
               { icon: Mail, href: "mailto:mail2socialflex@gmail.com", label: "Email Us" },
               { icon: Dribbble, href: "#contact", label: "Dribbble" },
             ].map(({ icon: Icon, href, label }, i) => (

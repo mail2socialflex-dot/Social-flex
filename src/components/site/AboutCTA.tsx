@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone } from "lucide-react";
 import about1 from "@/assets/about-1.jpg";
 import about2 from "@/assets/about-2.jpg";
 import { ActionButton, Reveal } from "./primitives";
@@ -76,12 +76,23 @@ export function AboutCTA() {
           <div className="mt-12 grid gap-3 sm:grid-cols-2">
             <a
               href="mailto:mail2socialflex@gmail.com"
-              className="group flex items-center gap-4 rounded-xl glass-panel px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[var(--glow-red)] sm:col-span-2"
+              className="group flex items-center gap-4 rounded-xl glass-panel px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[var(--glow-red)]"
             >
               <Mail className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110" />
               <div className="min-w-0">
                 <p className="label-xs text-muted-foreground">Email</p>
                 <p className="text-sm font-medium text-foreground">mail2socialflex@gmail.com</p>
+              </div>
+            </a>
+
+            <a
+              href="tel:801550204"
+              className="group flex items-center gap-4 rounded-xl glass-panel px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[var(--glow-red)]"
+            >
+              <Phone className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110" />
+              <div className="min-w-0">
+                <p className="label-xs text-muted-foreground">Phone</p>
+                <p className="text-sm font-medium text-foreground">801550204</p>
               </div>
             </a>
 
@@ -99,13 +110,15 @@ export function AboutCTA() {
             </a>
 
             <a
-              href="tel:801550204"
+              href="https://www.facebook.com/share/1CFB93LRsq/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-4 rounded-xl glass-panel px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[var(--glow-red)]"
             >
-              <Phone className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110" />
+              <Facebook className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110" />
               <div className="min-w-0">
-                <p className="label-xs text-muted-foreground">Phone</p>
-                <p className="text-sm font-medium text-foreground">801550204</p>
+                <p className="label-xs text-muted-foreground">Facebook</p>
+                <p className="text-sm font-medium text-foreground">Social Flex</p>
               </div>
             </a>
           </div>
