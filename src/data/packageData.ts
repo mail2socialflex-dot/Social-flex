@@ -1,8 +1,6 @@
 export interface ServiceItem {
   no: string;
   name: string;
-  price: string;
-  unit?: string;
   badge?: string;
   note?: string;
   isPopular?: boolean;
@@ -18,7 +16,7 @@ export interface PackageCategoryData {
   subtitle: string;
   items: ServiceItem[];
   terms?: string[];
-  addOns?: { service: string; price: string }[];
+  addOns?: string[];
   coreDeliverables?: string[];
 }
 
@@ -27,16 +25,14 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
     id: "personal-branding",
     title: "Personal Branding",
     shortTitle: "Personal Brand",
-    tagline: "SERVICE & PRICING",
+    tagline: "CURATED DELIVERABLES",
     subtitle: "Flexible services. Customised solutions. Personal brand growth.",
     items: [
       {
         no: "01",
         name: "Reel Creation & Editing",
-        price: "Starting at ₹1,699",
-        unit: "/ Reel",
         badge: "HIGH ENGAGEMENT",
-        note: "Final pricing depends on reel duration, editing complexity and production requirements. Shooting, if required, quoted separately.",
+        note: "Customized for reel duration, editing complexity, and visual animations. Shooting support available.",
         deliverables: [
           "Professional reel editing",
           "Transitions, effects and animations",
@@ -47,9 +43,8 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "02",
         name: "Creative Design & Photography",
-        price: "Starting at ₹599",
-        unit: "/ Creative",
-        note: "Pricing varies based on design complexity, creative format and additional requirements.",
+        badge: "VISUAL ASSETS",
+        note: "Tailored to your aesthetic style, creative formats, and brand requirements.",
         deliverables: [
           "Personal branding posters",
           "Promotional creatives",
@@ -60,11 +55,9 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "03",
         name: "Instagram Page Management",
-        price: "₹1,999",
-        unit: "/ Month",
         badge: "POPULAR RETAINER",
         isPopular: true,
-        note: "Content creation and design charges are billed separately. Monthly posting limits will be agreed upon.",
+        note: "Dedicated end-to-end profile care with scheduled posting and active page monitoring.",
         deliverables: [
           "Instagram profile and bio optimisation",
           "Content scheduling and publishing",
@@ -75,11 +68,9 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "04",
         name: "Personal Branding Strategy",
-        price: "₹9,999",
-        unit: "/ Month",
         badge: "OPTIONAL STRATEGY",
         isOptional: true,
-        note: "This is an optional strategic service and can be skipped if not required.",
+        note: "Strategic roadmap for leaders and founders looking to build industry authority.",
         deliverables: [
           "Personal brand positioning",
           "Target audience research",
@@ -92,26 +83,24 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       },
     ],
     terms: [
-      "All prices are starting prices unless specified.",
-      "Services can be selected individually.",
-      "Additional requirements will be quoted separately.",
-      "Advertising budget, if required, is not included.",
-      "Final pricing will be confirmed before project commencement.",
+      "Services can be selected individually or bundled as a cohesive monthly retainer.",
+      "Custom deliverables scaled to your publishing frequency and brand goals.",
+      "Dedicated creative strategist and video editors assigned to your profile.",
+      "Scope and deliverables confirmed prior to project kickoff.",
     ],
   },
   {
     id: "brand-creation",
     title: "Brand Creation",
     shortTitle: "Brand Creation",
-    tagline: "SERVICE & PRICING",
+    tagline: "BRAND IDENTITY & RETENTION",
     subtitle: "Build a distinctive brand identity that captures attention and creates impact.",
     items: [
       {
         no: "01",
         name: "Social Media Brand Setup & Optimisation",
-        price: "₹2,999",
-        unit: "One-time",
         badge: "BRAND FOUNDATION",
+        note: "Complete digital storefront setup ensuring strong initial market positioning.",
         deliverables: [
           "Social media profile setup and optimisation",
           "Bio and profile positioning",
@@ -122,10 +111,8 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "02",
         name: "Reel Creation & Content Production",
-        price: "Starting at ₹2,500",
-        unit: "/ Reel",
         badge: "VIRAL IMPACT",
-        note: "Final pricing depends on reel duration, content requirements, production and editing complexity. Shooting quoted separately.",
+        note: "From creative concepts to high-end post-production. On-location shoot support available.",
         deliverables: [
           "Creative reel concepts",
           "Content planning and scripting",
@@ -137,9 +124,8 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "03",
         name: "Creative Design & Photography",
-        price: "Starting at ₹599",
-        unit: "/ Creative",
-        note: "Pricing varies depending on the creative concept, design complexity and production requirements.",
+        badge: "CREATIVE ENGINE",
+        note: "Bespoke social posters, product highlights, and announcements.",
         deliverables: [
           "Brand promotional posters",
           "Product showcase creatives",
@@ -151,11 +137,9 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "04",
         name: "Social Media Page Management",
-        price: "₹3,000",
-        unit: "/ Month",
         badge: "MOST POPULAR",
         isPopular: true,
-        note: "Content creation and creative design charges billed separately. Monthly posting limits agreed upon.",
+        note: "Daily consistency, active scheduling, and maintaining polished brand aesthetic.",
         deliverables: [
           "Social media account management",
           "Content scheduling and publishing",
@@ -167,11 +151,9 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "05",
         name: "Branding & Marketing Strategy",
-        price: "₹9,999",
-        unit: "/ Month",
         badge: "OPTIONAL STRATEGY",
         isOptional: true,
-        note: "Optional strategic service. Clients can skip it if they do not require ongoing strategy.",
+        note: "Holistic marketing architecture, competitor benchmarking, and growth playbooks.",
         deliverables: [
           "Brand positioning and identity strategy",
           "Target audience research",
@@ -184,25 +166,22 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       },
     ],
     terms: [
-      "All prices are starting prices unless specified.",
-      "Services can be selected individually.",
-      "Additional requirements will be quoted separately.",
-      "Advertising budget, if required, is not included.",
-      "Final pricing will be confirmed before project commencement.",
+      "Services can be selected individually or bundled into full-service agency retainers.",
+      "Custom production packages structured to match your monthly campaign targets.",
+      "Production timeline, deliverables, and revision rounds agreed upon before kickoff.",
+      "Advertising budgets, if required, are managed with dedicated ad account setups.",
     ],
   },
   {
     id: "seo-visibility",
     title: "SEO & Google Visibility",
     shortTitle: "SEO & Google",
-    tagline: "WEBSITE & LOCAL OPTIMISATION",
+    tagline: "WEBSITE & LOCAL DOMINANCE",
     subtitle: "Website optimization, SEO strategies, and Google Business Profile optimization to improve your online visibility.",
     items: [
       {
         no: "01",
         name: "Google Visibility",
-        price: "₹4,999",
-        unit: "/ Month",
         badge: "LOCAL PROFILE ONLY",
         note: "Google Business Profile only. Ideal for local storefronts and service businesses.",
         deliverables: [
@@ -216,11 +195,9 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "02",
         name: "Local SEO Growth",
-        price: "₹9,999",
-        unit: "/ Month",
         badge: "RECOMMENDED",
         isPopular: true,
-        note: "Complete package: Website + Google Business SEO.",
+        note: "Complete package: Integrated Website + Google Business Profile SEO.",
         deliverables: [
           "Website SEO optimisation",
           "Local keyword research and targeting",
@@ -234,10 +211,8 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "03",
         name: "Advanced SEO",
-        price: "₹17,999",
-        unit: "/ Month",
         badge: "FULL DOMINANCE",
-        note: "Full SEO + content marketing + link building for competitive niches.",
+        note: "Full-scale SEO + ongoing content marketing + authority link building.",
         deliverables: [
           "Comprehensive website technical SEO optimisation",
           "High-intent local & regional keyword targeting",
@@ -261,11 +236,11 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       "Monthly performance reporting",
     ],
     addOns: [
-      { service: "Initial SEO Audit", price: "₹3,000" },
-      { service: "Google Business Setup", price: "₹2,500" },
-      { service: "Website SEO Audit", price: "₹3,500" },
-      { service: "Additional SEO Blog", price: "₹1,000 – ₹1,500" },
-      { service: "Website Technical Fixes", price: "Quoted separately" },
+      "Initial Comprehensive SEO Audit",
+      "Google Business Profile Setup & Verification",
+      "Website Architecture & Speed SEO Audit",
+      "Targeted SEO Content & Blog Articles",
+      "Custom Technical SEO & Schema Fixes",
     ],
   },
   {
@@ -278,10 +253,8 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "01",
         name: "Meta Ads Starter",
-        price: "₹6,999",
-        unit: "/ Month",
-        badge: "MANAGEMENT FEE",
-        note: "Management fee · Ad budget extra.",
+        badge: "ESSENTIAL ENGINE",
+        note: "Targeted campaigns focused on testing audience responses and building momentum.",
         deliverables: [
           "1–2 campaign setups",
           "Audience research and targeting",
@@ -294,11 +267,9 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "02",
         name: "Meta Ads Growth",
-        price: "₹9,999",
-        unit: "/ Month",
         badge: "MOST POPULAR",
         isPopular: true,
-        note: "Management fee · Ad budget extra.",
+        note: "Multi-campaign architecture engineered for qualified inbound leads and direct WhatsApp chats.",
         deliverables: [
           "Up to 3 active campaign setups",
           "Up to 5 custom ad creatives",
@@ -311,10 +282,8 @@ export const PACKAGE_CATEGORIES: PackageCategoryData[] = [
       {
         no: "03",
         name: "Performance Marketing Pro",
-        price: "₹14,999",
-        unit: "/ Month",
         badge: "MAX SCALE",
-        note: "Management fee · Ad budget extra.",
+        note: "Comprehensive full-funnel performance marketing for aggressive growth.",
         deliverables: [
           "Multiple campaign strategies (Funnel architecture)",
           "Up to 8 custom ad creatives",

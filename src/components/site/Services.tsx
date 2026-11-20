@@ -361,9 +361,9 @@ export function Services() {
         <div id="packages">
           <div className="text-center max-w-3xl mx-auto">
             <Reveal>
-              <SectionLabel>Pricing & Retainers</SectionLabel>
+              <SectionLabel>Packages & Retainers</SectionLabel>
               <h2 className="mt-4 display text-[clamp(2.5rem,5.5vw,4.8rem)] leading-[0.98]">
-                SERVICE & <span className="text-primary">PRICING</span>
+                SERVICE & <span className="text-primary">PACKAGES</span>
               </h2>
               <p className="mt-5 text-sm sm:text-base leading-[1.75] text-muted-foreground">
                 Flexible services, customised solutions, and predictable high-caliber output built for sustained brand momentum.
@@ -468,24 +468,14 @@ export function Services() {
                             {item.name}
                           </h4>
 
-                          {/* Price Display */}
-                          <div className="mt-4 pb-4 border-b border-border/50">
-                            <div className="flex items-baseline gap-1.5 flex-wrap">
-                              <span className="font-cond text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-                                {item.price}
-                              </span>
-                              {item.unit && (
-                                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                                  {item.unit}
-                                </span>
-                              )}
-                            </div>
-                            {item.note && (
-                              <p className="mt-2 text-xs leading-relaxed text-muted-foreground/80 italic">
+                          {/* Scope / Strategy Note */}
+                          {item.note && (
+                            <div className="mt-3 pb-4 border-b border-border/50 min-h-[3rem]">
+                              <p className="text-xs leading-relaxed text-muted-foreground">
                                 {item.note}
                               </p>
-                            )}
-                          </div>
+                            </div>
+                          )}
 
                           {/* Deliverables List */}
                           <div className="mt-5">
@@ -564,16 +554,16 @@ export function Services() {
                   </div>
                 )}
 
-                {/* Add-ons / Additional Charges Table (if present) */}
+                {/* Add-ons / Additional Services (if present) */}
                 {activeCategory.addOns && (
                   <div className="rounded-2xl border border-white/10 bg-rich/60 p-7 sm:p-9 backdrop-blur-md">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
                       <div>
                         <span className="font-cond text-xs font-bold tracking-[0.2em] text-primary uppercase">
-                          A La Carte & Upgrades
+                          Optional Upgrades
                         </span>
                         <h4 className="font-cond text-xl sm:text-2xl font-bold uppercase tracking-wide text-foreground">
-                          Additional Services & Charges
+                          Additional Services & Add-Ons
                         </h4>
                       </div>
                       <p className="text-xs text-muted-foreground">
@@ -581,16 +571,14 @@ export function Services() {
                       </p>
                     </div>
                     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                      {activeCategory.addOns.map((add, aIdx) => (
+                      {activeCategory.addOns.map((addon, aIdx) => (
                         <div
                           key={aIdx}
-                          className="flex items-center justify-between rounded-xl border border-border/70 bg-rich/80 px-5 py-4 transition-all duration-300 hover:border-primary/50"
+                          className="flex items-center gap-3 rounded-xl border border-border/70 bg-rich/80 px-5 py-4 transition-all duration-300 hover:border-primary/50"
                         >
+                          <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
                           <span className="text-xs sm:text-sm font-semibold text-foreground">
-                            {add.service}
-                          </span>
-                          <span className="font-cond text-sm font-bold text-primary pl-2">
-                            {add.price}
+                            {addon}
                           </span>
                         </div>
                       ))}
