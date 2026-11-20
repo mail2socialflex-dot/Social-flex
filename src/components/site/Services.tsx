@@ -9,7 +9,6 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { ActionButton, Reveal, SectionLabel } from "./primitives";
-import { WhatsAppIcon } from "./WhatsAppCTA";
 
 /* ---------------- 4 CORE SERVICES & PACKAGES ---------------- */
 type CoreService = {
@@ -20,7 +19,6 @@ type CoreService = {
   Icon: typeof Crown;
   included: string[];
   ctaText: string;
-  whatsappMsg: string;
 };
 
 const CORE_SERVICES: CoreService[] = [
@@ -37,7 +35,6 @@ const CORE_SERVICES: CoreService[] = [
       "Personal Branding Strategy",
     ],
     ctaText: "LET'S BUILD YOUR BRAND →",
-    whatsappMsg: "Hi Social Flex! I'm interested in Personal Branding services. Let's build my brand.",
   },
   {
     no: "SERVICE 02",
@@ -53,7 +50,6 @@ const CORE_SERVICES: CoreService[] = [
       "Branding & Marketing Strategy",
     ],
     ctaText: "CREATE YOUR IDENTITY →",
-    whatsappMsg: "Hi Social Flex! I'm interested in Brand Creation services. Let's create our identity.",
   },
   {
     no: "SERVICE 03",
@@ -70,7 +66,6 @@ const CORE_SERVICES: CoreService[] = [
       "Performance Reporting",
     ],
     ctaText: "BOOST YOUR VISIBILITY →",
-    whatsappMsg: "Hi Social Flex! I'm interested in SEO & Google Visibility services. Boost our visibility.",
   },
   {
     no: "SERVICE 04",
@@ -87,7 +82,6 @@ const CORE_SERVICES: CoreService[] = [
       "Campaign Optimisation & Reporting",
     ],
     ctaText: "SCALE YOUR BUSINESS →",
-    whatsappMsg: "Hi Social Flex! I'm interested in Meta Ads & Performance Marketing services. Scale our business.",
   },
 ];
 
@@ -229,22 +223,13 @@ export function Services() {
                     </div>
                   </div>
 
-                  {/* Card Footer CTAs */}
-                  <div className="relative z-10 mt-8 pt-6 border-t border-border/40 flex flex-col gap-2.5">
+                  {/* Card Footer CTA */}
+                  <div className="relative z-10 mt-8 pt-6 border-t border-border/40">
                     <a
                       href="#contact"
                       className="group/btn relative flex h-12 w-full items-center justify-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_25px_var(--primary)]"
                     >
                       <span>{srv.ctaText}</span>
-                    </a>
-                    <a
-                      href={`https://wa.me/917092280024?text=${encodeURIComponent(srv.whatsappMsg)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-1.5 py-1 text-[11px] font-semibold text-emerald-400/90 transition-colors hover:text-emerald-300"
-                    >
-                      <WhatsAppIcon className="h-3 w-3" />
-                      <span>Inquire on WhatsApp</span>
                     </a>
                   </div>
                 </article>
@@ -339,21 +324,10 @@ export function Services() {
                         <p className="font-cond text-sm sm:text-base font-bold tracking-wide text-foreground">
                           {vt.highlights}
                         </p>
-                        <div className="mt-8 flex flex-wrap items-center gap-4">
+                        <div className="mt-8">
                           <ActionButton as="a" href="#contact">
                             Produce {vt.title}
                           </ActionButton>
-                          <a
-                            href={`https://wa.me/917092280024?text=${encodeURIComponent(
-                              `Hi Social Flex! I'd like to produce ${vt.title} video content for my brand.`
-                            )}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400 hover:text-emerald-300 transition-colors"
-                          >
-                            <WhatsAppIcon className="h-3.5 w-3.5" />
-                            <span>Quick WhatsApp Inquiry</span>
-                          </a>
                         </div>
                       </div>
                     </div>
