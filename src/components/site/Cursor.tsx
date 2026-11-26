@@ -4,7 +4,9 @@ export function Cursor() {
   const dot = useRef<HTMLDivElement>(null);
   const ring = useRef<HTMLDivElement>(null);
   const activeRef = useRef(false);
+  const labelRef = useRef<string>("");
   const [active, setActive] = useState(false);
+  const [cursorLabel, setCursorLabel] = useState("");
   const [visible, setVisible] = useState(false);
   const [enabled, setEnabled] = useState(false);
 
@@ -38,9 +40,16 @@ export function Cursor() {
       }
 
       const target = e.target as HTMLElement | null;
+      const cursorTarget = target?.closest("[data-cursor]") as HTMLElement | null;
+      const customLabel = cursorTarget?.getAttribute("data-cursor")?.trim() || "";
       const isInteractive = !!target?.closest(
         "a, button, input, textarea, select, [data-cursor], [role='button']"
       );
+
+      if (labelRef.current !== customLabel) {
+        labelRef.current = customLabel;
+        setCursorLabel(customLabel);
+      }
 
       if (activeRef.current !== isInteractive) {
         activeRef.current = isInteractive;
@@ -58,7 +67,9 @@ export function Cursor() {
 
         if (ring.current) {
           const isAct = activeRef.current;
-          ring.current.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) scale(${isAct ? 1.5 : 1})`;
+          const hasLabel = Boolean(labelRef.current);
+          const scale = hasLabel ? 1 : isAct ? 1.5 : 1;
+          ring.current.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) scale(${scale})`;
         }
       }
       rafId = requestAnimationFrame(render);
@@ -86,20 +97,26 @@ export function Cursor() {
         ref={dot}
         className="pointer-events-none fixed left-0 top-0 h-1.5 w-1.5 rounded-full bg-foreground transition-opacity duration-300"
         style={{
-          opacity: visible && dot.current?.style.transform ? 1 : 0,
+          opacity: visible && !cursorLabel && dot.current?.style.transform ? 1 : 0,
           willChange: "transform",
         }}
       />
-      {/* Outer red glowing ring */}
+      {/* Outer red glowing ring / contextual pill */}
       <div
         ref={ring}
-        className="pointer-events-none fixed left-0 top-0 h-10 w-10 rounded-full border border-primary/70 transition-[opacity,border-color] duration-300"
+        className={`pointer-events-none fixed left-0 top-0 grid place-items-center rounded-full border transition-[width,height,background-color,border-color,opacity] duration-300 ${
+          cursorLabel
+            ? "h-14 w-14 border-primary bg-primary/90 text-[10px] font-bold tracking-[0.18em] text-primary-foreground"
+            : "h-10 w-10 border-primary/70"
+        }`}
         style={{
           boxShadow: "0 0 28px -4px var(--primary)",
-          opacity: visible && ring.current?.style.transform ? (active ? 1 : 0.5) : 0,
+          opacity: visible && ring.current?.style.transform ? (active || cursorLabel ? 1 : 0.5) : 0,
           willChange: "transform",
         }}
-      />
+      >
+        {cursorLabel && <span>{cursorLabel}</span>}
+      </div>
     </div>
   );
 }

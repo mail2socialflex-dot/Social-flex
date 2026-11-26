@@ -8,7 +8,7 @@ import {
   Sparkles,
   TrendingUp,
 } from "lucide-react";
-import { ActionButton, Reveal, SectionLabel } from "./primitives";
+import { ActionButton, Reveal, SectionLabel, TiltCard } from "./primitives";
 
 /* ---------------- 4 CORE SERVICES & PACKAGES ---------------- */
 type CoreService = {
@@ -172,7 +172,8 @@ export function Services() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
             {CORE_SERVICES.map((srv, idx) => (
               <Reveal key={srv.id} delay={idx * 0.1}>
-                <article className="group relative flex flex-col justify-between h-full rounded-2xl border border-border/80 bg-rich/80 p-7 sm:p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-primary/80 hover:shadow-[0_20px_60px_-20px_var(--primary)]">
+                <TiltCard className="h-full" maxTilt={5}>
+                  <article className="group relative flex flex-col justify-between h-full rounded-2xl border border-border/80 bg-rich/80 p-7 sm:p-8 backdrop-blur-md transition-all duration-500 hover:border-primary/80 hover:shadow-[0_20px_60px_-20px_var(--primary)]">
                   {/* Hover Red Gradient Overlay */}
                   <div
                     aria-hidden
@@ -232,7 +233,8 @@ export function Services() {
                       <span>{srv.ctaText}</span>
                     </a>
                   </div>
-                </article>
+                  </article>
+                </TiltCard>
               </Reveal>
             ))}
           </div>

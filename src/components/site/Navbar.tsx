@@ -87,7 +87,15 @@ export function Navbar() {
           </ul>
 
           {/* RIGHT: Contact CTA */}
-          <div className="flex items-center justify-end gap-5">
+          <div className="flex items-center justify-end gap-3 lg:gap-4">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
+              aria-label="Open quick navigation (Command+K)"
+              className="hidden lg:inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-[11px] text-muted-foreground transition-colors hover:border-primary/60 hover:text-foreground"
+            >
+              <span>⌘K</span>
+            </button>
             <Magnetic className="hidden lg:inline-block">
               <a
                 href="#contact"

@@ -71,6 +71,76 @@ export function Magnetic({
   );
 }
 
+/* ---------------- 3D Tilt Card with Dynamic Specular Lighting ---------------- */
+export function TiltCard({
+  children,
+  className,
+  maxTilt = 6,
+}: {
+  children: ReactNode;
+  className?: string;
+  maxTilt?: number;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const sheenRef = useRef<HTMLDivElement>(null);
+
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (
+      typeof window !== "undefined" &&
+      (window.matchMedia("(pointer: coarse)").matches ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    ) {
+      return;
+    }
+
+    const el = cardRef.current;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+
+    const rotateY = (px - 0.5) * (maxTilt * 2);
+    const rotateX = (0.5 - py) * (maxTilt * 2);
+
+    el.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
+
+    if (sheenRef.current) {
+      sheenRef.current.style.opacity = "1";
+      sheenRef.current.style.background = `radial-gradient(420px circle at ${(px * 100).toFixed(1)}% ${(py * 100).toFixed(1)}%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 65%)`;
+    }
+  };
+
+  const reset = () => {
+    if (cardRef.current) {
+      cardRef.current.style.transform =
+        "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+    }
+    if (sheenRef.current) {
+      sheenRef.current.style.opacity = "0";
+    }
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={onMove}
+      onMouseLeave={reset}
+      className={cn(
+        "relative will-change-transform transition-transform duration-300 ease-out",
+        className,
+      )}
+    >
+      <div
+        ref={sheenRef}
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-20 rounded-2xl opacity-0 transition-opacity duration-300"
+      />
+      {children}
+    </div>
+  );
+}
+
 /* ---------------- Buttons ---------------- */
 type BtnProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   as?: "button" | "a";

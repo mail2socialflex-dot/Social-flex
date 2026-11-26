@@ -129,8 +129,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Outfit:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap",
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
     ],
     scripts: [
+      {
+        type: "speculationrules",
+        children: JSON.stringify({
+          prerender: [{ where: { href_matches: "/*" }, eagerness: "moderate" }],
+          prefetch: [{ where: { href_matches: "/*" }, eagerness: "moderate" }],
+        }),
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify({

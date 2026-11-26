@@ -1,7 +1,7 @@
 import { ArrowUpRight, Image as ImageIcon, Pause, Play } from "lucide-react";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ActionButton, Reveal, SectionLabel } from "./primitives";
+import { ActionButton, Reveal, SectionLabel, TiltCard } from "./primitives";
 import { PORTFOLIO_PROJECTS, PortfolioProject } from "@/data/portfolioData";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -79,12 +79,13 @@ export function Portfolio() {
                 }}
                 className="group relative"
               >
-                <a
-                  href={project.link || "#contact"}
-                  data-cursor
-                  aria-label={`${project.title} — ${project.category}`}
-                  className="block rounded-2xl border border-border bg-rich/60 p-2 outline-none backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_12px_40px_-15px_color-mix(in_oklab,var(--primary)_20%,transparent)] focus-visible:ring-2 focus-visible:ring-primary"
-                >
+                <TiltCard maxTilt={5}>
+                  <a
+                    href={project.link || "#contact"}
+                    data-cursor="VIEW"
+                    aria-label={`${project.title} — ${project.category}`}
+                    className="block rounded-2xl border border-border bg-rich/60 p-2 outline-none backdrop-blur-sm transition-all duration-500 hover:border-primary/50 hover:shadow-[0_12px_40px_-15px_color-mix(in_oklab,var(--primary)_20%,transparent)] focus-visible:ring-2 focus-visible:ring-primary"
+                  >
                   {/* Thumbnail area */}
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border/60 bg-obsidian">
                     {project.video ? (
@@ -178,6 +179,7 @@ export function Portfolio() {
                     )}
                   </div>
                 </a>
+                </TiltCard>
 
                 {/* Video Play/Pause button if video exists */}
                 {project.video && (

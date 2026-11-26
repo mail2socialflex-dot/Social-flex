@@ -11,6 +11,8 @@ import { AboutCTA } from "@/components/site/AboutCTA";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppCTA";
+import { SmoothScroll } from "@/components/site/SmoothScroll";
+import { CommandPalette } from "@/components/site/CommandPalette";
 
 const title = "Social Flex — Creative & Digital Marketing Agency";
 const description =
@@ -33,6 +35,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background md:cursor-none">
+      <SmoothScroll />
+      <CommandPalette />
       <Cursor />
       <Navbar />
       <main>
