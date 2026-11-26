@@ -37,10 +37,11 @@ The server processes and distributes each submission to **3 destinations**:
 
 ### Destination B: Direct Email Alert
 - **Recipient:** `mail2socialflex@gmail.com` (can be overridden via `NOTIFICATION_EMAIL` environment variable)
-- **Subject:** `NEW SOCIAL FLEX INQUIRY: <Name> (<Service>)`
-- **Sender:** `Social Flex Enquiries <onboarding@resend.dev>` (via Resend API)
-- **Content:** Clean formatted email containing all submitted client details for immediate follow-up.
-- **Configuration:** Requires `RESEND_API_KEY` set in the environment variables (e.g. on Vercel / Cloudflare).
+- **Subject:** `New Social Flex Inquiry: <Name> (<Service>)`
+- **Delivery Mechanisms:**
+  1. **Primary / Direct:** FormSubmit zero-config email forwarder directly to `mail2socialflex@gmail.com` (no external API keys required).
+  2. **Secondary / Custom:** Resend API integration (if `RESEND_API_KEY` is provided in environment).
+- **Content:** Clean formatted HTML table / text containing all submitted client details for immediate follow-up.
 
 ---
 

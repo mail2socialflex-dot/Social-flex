@@ -130,7 +130,41 @@ async function processEnquirySubmission(payload: EnquiryPayload) {
       });
       if (emailRes.ok) results.email = true;
     } catch (err) {
-      console.error("[Enquiry] Email notification error:", err);
+      console.error("[Enquiry] Resend email error:", err);
+    }
+  }
+
+  // Direct FormSubmit fallback — ensures emails always reach targetEmail even without API keys
+  if (!results.email) {
+    try {
+      const formSubmitRes = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Origin: "https://www.socialflex.in",
+            Referer: "https://www.socialflex.in/",
+          },
+          body: JSON.stringify({
+            name: payload.name,
+            phone: payload.phone,
+            email: payload.email,
+            company: payload.company || "N/A",
+            service: payload.project_type,
+            message: payload.message,
+            _subject: `New Social Flex Inquiry: ${payload.name} (${payload.project_type})`,
+            _template: "table",
+            _captcha: "false",
+          }),
+        },
+      );
+      if (formSubmitRes.ok) {
+        results.email = true;
+      }
+    } catch (err) {
+      console.error("[Enquiry] Direct email delivery error:", err);
     }
   }
 
